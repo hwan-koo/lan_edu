@@ -34,6 +34,111 @@
 
             <v-navigation-drawer app clipped flat v-model="sideBar">
                 <v-list>
+                    <v-list-item
+                        class="px-2"
+                        key="bookPublishes"
+                        to="/bookpublishes/bookPublishes"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        BookPublish
+                    </v-list-item>
+
+
+                    <v-list-item
+                        class="px-2"
+                        key="paymenthistories"
+                        to="/pays/paymenthistories"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        Paymenthistory
+                    </v-list-item>
+
+                    <v-list-item
+                        class="px-2"
+                        key=""
+                        to="//"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        
+                    </v-list-item>
+
+                    <v-list-item
+                        class="px-2"
+                        key=""
+                        to="//"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        
+                    </v-list-item>
+
+
+                    <v-list-item
+                        class="px-2"
+                        key="bookPurchases"
+                        to="/bookpurchases/bookPurchases"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        BookPurchase
+                    </v-list-item>
+
+
+                    <v-list-item
+                        class="px-2"
+                        key="members"
+                        to="/members/members"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        Member
+                    </v-list-item>
+
+
+                    <v-list-item
+                        class="px-2"
+                        key="bookReviews"
+                        to="/reviews/bookReviews"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        BookReview
+                    </v-list-item>
+
+
+                    <v-list-item
+                        class="px-2"
+                        key="genStories"
+                        to="/genstories/genStories"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        GenStory
+                    </v-list-item>
+
+
+                    <v-list-item
+                        class="px-2"
+                        key="genImages"
+                        to="/genimages/genImages"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        GenImage
+                    </v-list-item>
+
 
                 </v-list>
             </v-navigation-drawer>
@@ -113,6 +218,69 @@ export default {
         flipped: [],
         ImageUrl: '',
         aggregate: [
+            { 
+                title: 'BookPublish', 
+                description: '', 
+                key: 'bookPublishes', 
+                route: '/bookpublishes/bookPublishes',
+                ImageUrl: '',
+            },
+            { 
+                title: 'Paymenthistory', 
+                description: '', 
+                key: 'paymenthistories', 
+                route: '/pays/paymenthistories',
+                ImageUrl: '',
+            },
+            { 
+                title: '', 
+                description: '', 
+                key: '', 
+                route: '//',
+                ImageUrl: '',
+            },
+            { 
+                title: '', 
+                description: '', 
+                key: '', 
+                route: '//',
+                ImageUrl: '',
+            },
+            { 
+                title: 'BookPurchase', 
+                description: '', 
+                key: 'bookPurchases', 
+                route: '/bookpurchases/bookPurchases',
+                ImageUrl: '',
+            },
+            { 
+                title: 'Member', 
+                description: '', 
+                key: 'members', 
+                route: '/members/members',
+                ImageUrl: '',
+            },
+            { 
+                title: 'BookReview', 
+                description: '', 
+                key: 'bookReviews', 
+                route: '/reviews/bookReviews',
+                ImageUrl: '',
+            },
+            { 
+                title: 'GenStory', 
+                description: '', 
+                key: 'genStories', 
+                route: '/genstories/genStories',
+                ImageUrl: '',
+            },
+            { 
+                title: 'GenImage', 
+                description: '', 
+                key: 'genImages', 
+                route: '/genimages/genImages',
+                ImageUrl: '',
+            },
             
         ],
     }),

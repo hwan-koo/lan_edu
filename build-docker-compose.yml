@@ -23,7 +23,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
 
-  class:
+  bookpublish:
     depends_on: 
       - kafka
     image: adoptopenjdk/maven-openjdk11:latest
@@ -34,6 +34,90 @@ services:
       - 8082:8082
     working_dir: /usr/src
     volumes:
-      - ./class:/usr/src
+      - ./bookpublish:/usr/src
+      - ./maven-repo:/root/.m2
+      
+  pay:
+    depends_on: 
+      - kafka
+    image: adoptopenjdk/maven-openjdk11:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    command: mvn spring-boot:run
+    ports:
+      - 8083:8083
+    working_dir: /usr/src
+    volumes:
+      - ./pay:/usr/src
+      - ./maven-repo:/root/.m2
+      
+  bookpurchase:
+    depends_on: 
+      - kafka
+    image: adoptopenjdk/maven-openjdk11:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    command: mvn spring-boot:run
+    ports:
+      - 0:0
+    working_dir: /usr/src
+    volumes:
+      - ./bookpurchase:/usr/src
+      - ./maven-repo:/root/.m2
+      
+  member:
+    depends_on: 
+      - kafka
+    image: adoptopenjdk/maven-openjdk11:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    command: mvn spring-boot:run
+    ports:
+      - 0:0
+    working_dir: /usr/src
+    volumes:
+      - ./member:/usr/src
+      - ./maven-repo:/root/.m2
+      
+  review:
+    depends_on: 
+      - kafka
+    image: adoptopenjdk/maven-openjdk11:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    command: mvn spring-boot:run
+    ports:
+      - 0:0
+    working_dir: /usr/src
+    volumes:
+      - ./review:/usr/src
+      - ./maven-repo:/root/.m2
+      
+  genstory:
+    depends_on: 
+      - kafka
+    image: adoptopenjdk/maven-openjdk11:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    command: mvn spring-boot:run
+    ports:
+      - 0:0
+    working_dir: /usr/src
+    volumes:
+      - ./genstory:/usr/src
+      - ./maven-repo:/root/.m2
+      
+  genimage:
+    depends_on: 
+      - kafka
+    image: adoptopenjdk/maven-openjdk11:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    command: mvn spring-boot:run
+    ports:
+      - 0:0
+    working_dir: /usr/src
+    volumes:
+      - ./genimage:/usr/src
       - ./maven-repo:/root/.m2
       

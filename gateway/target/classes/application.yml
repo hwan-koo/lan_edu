@@ -9,10 +9,34 @@ spring:
     gateway:
 #<<< API Gateway / Routes
       routes:
-        - id: class
+        - id: bookpublish
           uri: http://localhost:8082
           predicates:
-            - Path=, 
+            - Path=/bookPublishes/**, 
+        - id: pay
+          uri: http://localhost:8083
+          predicates:
+            - Path=/paymenthistories/**, /undefined/**, /undefined/**, 
+        - id: bookpurchase
+          uri: http://localhost:0
+          predicates:
+            - Path=/bookPurchases/**, 
+        - id: member
+          uri: http://localhost:0
+          predicates:
+            - Path=/members/**, 
+        - id: review
+          uri: http://localhost:0
+          predicates:
+            - Path=/bookReviews/**, 
+        - id: genstory
+          uri: http://localhost:0
+          predicates:
+            - Path=/genStories/**, 
+        - id: genimage
+          uri: http://localhost:0
+          predicates:
+            - Path=/genImages/**, 
         - id: frontend
           uri: http://localhost:8080
           predicates:
@@ -37,10 +61,34 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: class
-          uri: http://class:8080
+        - id: bookpublish
+          uri: http://bookpublish:8080
           predicates:
-            - Path=, 
+            - Path=/bookPublishes/**, 
+        - id: pay
+          uri: http://pay:8080
+          predicates:
+            - Path=/paymenthistories/**, /undefined/**, /undefined/**, 
+        - id: bookpurchase
+          uri: http://bookpurchase:8080
+          predicates:
+            - Path=/bookPurchases/**, 
+        - id: member
+          uri: http://member:8080
+          predicates:
+            - Path=/members/**, 
+        - id: review
+          uri: http://review:8080
+          predicates:
+            - Path=/bookReviews/**, 
+        - id: genstory
+          uri: http://genstory:8080
+          predicates:
+            - Path=/genStories/**, 
+        - id: genimage
+          uri: http://genimage:8080
+          predicates:
+            - Path=/genImages/**, 
         - id: frontend
           uri: http://frontend:8080
           predicates:

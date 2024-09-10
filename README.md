@@ -20,7 +20,13 @@ cd /bin
 ## Run the backend micro-services
 See the README.md files inside the each microservices directory:
 
-- class
+- bookpublish
+- pay
+- bookpurchase
+- member
+- review
+- genstory
+- genimage
 
 
 ## Run API Gateway (Spring Gateway)
@@ -30,8 +36,35 @@ mvn spring-boot:run
 ```
 
 ## Test by API
-- class
+- bookpublish
 ```
+ http :8088/bookPublishes id="id" title="title" contents="contents" imageUrl="imageUrl" price="price" memberId="memberId" 
+```
+- pay
+```
+ http :8088/paymenthistories id="id" purchaseId="purchaseId" paymentTime="paymentTime" price="price" memberId="memberId" 
+ http :8088/ 
+ http :8088/ 
+```
+- bookpurchase
+```
+ http :8088/bookPurchases id="id" price="price" status="status" bookId="bookId" memberId="memberId" 
+```
+- member
+```
+ http :8088/members id="id" name="name" email="email" phoneNumber="phoneNumber" introduction="introduction" password="password" 
+```
+- review
+```
+ http :8088/bookReviews id="id" content="content" memberId="memberId" rating="rating" bookId="bookId" 
+```
+- genstory
+```
+ http :8088/genStories id="id" story="story" 
+```
+- genimage
+```
+ http :8088/genImages id="id" imageUrl="imageUrl" 
 ```
 
 

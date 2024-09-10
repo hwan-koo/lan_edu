@@ -29,15 +29,81 @@ jobs:
       
       - name: Build Maven Projects
         run: |
-          mvn clean package -f ./class/pom.xml
+          mvn clean package -f ./bookpublish/pom.xml
+          mvn clean package -f ./pay/pom.xml
+          mvn clean package -f ./bookpurchase/pom.xml
+          mvn clean package -f ./member/pom.xml
+          mvn clean package -f ./review/pom.xml
+          mvn clean package -f ./genstory/pom.xml
+          mvn clean package -f ./genimage/pom.xml
 
-      - name: Docker Build and push for Class
+      - name: Docker Build and push for Bookpublish
         uses: docker/build-push-action@v4
         with:
-          context: ./class
+          context: ./bookpublish
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/class:latest
-            ghcr.io/${{ github.repository }}/class:${{ github.ref_name }}
+            ghcr.io/${{ github.repository }}/bookpublish:latest
+            ghcr.io/${{ github.repository }}/bookpublish:${{ github.ref_name }}
+            
+      - name: Docker Build and push for Pay
+        uses: docker/build-push-action@v4
+        with:
+          context: ./pay
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/pay:latest
+            ghcr.io/${{ github.repository }}/pay:${{ github.ref_name }}
+            
+      - name: Docker Build and push for Bookpurchase
+        uses: docker/build-push-action@v4
+        with:
+          context: ./bookpurchase
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/bookpurchase:latest
+            ghcr.io/${{ github.repository }}/bookpurchase:${{ github.ref_name }}
+            
+      - name: Docker Build and push for Member
+        uses: docker/build-push-action@v4
+        with:
+          context: ./member
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/member:latest
+            ghcr.io/${{ github.repository }}/member:${{ github.ref_name }}
+            
+      - name: Docker Build and push for Review
+        uses: docker/build-push-action@v4
+        with:
+          context: ./review
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/review:latest
+            ghcr.io/${{ github.repository }}/review:${{ github.ref_name }}
+            
+      - name: Docker Build and push for Genstory
+        uses: docker/build-push-action@v4
+        with:
+          context: ./genstory
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/genstory:latest
+            ghcr.io/${{ github.repository }}/genstory:${{ github.ref_name }}
+            
+      - name: Docker Build and push for Genimage
+        uses: docker/build-push-action@v4
+        with:
+          context: ./genimage
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/genimage:latest
+            ghcr.io/${{ github.repository }}/genimage:${{ github.ref_name }}
             
